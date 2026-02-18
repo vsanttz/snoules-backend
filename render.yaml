@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: snoules-backend
+    runtime: node
+    repo: https://github.com/vsanttz/snoules-backend
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        value: mongodb+srv://vsanttz:SUA_NOVA_SENHA_AQUI@backend.m1to7pw.mongodb.net/backend?retryWrites=true&w=majority
+        sync: false
+      - key: JWT_SECRET
+        value: vsanttz_9uluuccp2_snoules_production_2026_secure_key_48chars
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: FRONTEND_URL
+        value: https://www.snoules.com.br
+      - key: BACKEND_URL
+        value: https://snoules-backend.onrender.com
+      - key: CORS_ORIGIN
+        value: https://www.snoules.com.br,https://snoules.com.br
